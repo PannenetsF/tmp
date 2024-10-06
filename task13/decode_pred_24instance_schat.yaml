@@ -1,0 +1,15 @@
+config:
+  alpha: 0.5
+  beta: 10
+  disabled: true
+  dump_path: /data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13decode_history.json
+  min_instance: 1
+  pull_threshold: 0.0
+  push_threshold: 0.8
+  slack_rate: 0.2
+  token_per_instance: 320000
+  total_instance: 24
+  update_time: 2
+  warmup_time: 1
+  window_time: 10
+config_type: momentum
