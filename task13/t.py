@@ -16,7 +16,8 @@ for fn in os.listdir(base_dir):
             with open(base_dir + new_fn, 'r') as f:
                 yaml_data = yaml.load(f, Loader=yaml.FullLoader)
             yaml_data['config']['total_instance'] = i
-            yaml_data['config']['disabled'] = True
+            yaml_data['config']['disabled'] = False
+            yaml_data['config']['dump_path'] = '/data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13/prefill_history.json'
             with open(base_dir + new_fn, 'w') as f:
                 yaml.dump(yaml_data, f)
 
@@ -36,6 +37,7 @@ for fn in os.listdir(base_dir):
             with open(base_dir + new_fn, 'r') as f:
                 yaml_data = yaml.load(f, Loader=yaml.FullLoader)
             yaml_data['config']['total_instance'] = i
-            yaml_data['config']['disabled'] = True
+            yaml_data['config']['disabled'] = False
+            yaml_data['config']['dump_path'] = '/data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13/decode_history.json'
             with open(base_dir + new_fn, 'w') as f:
                 yaml.dump(yaml_data, f)

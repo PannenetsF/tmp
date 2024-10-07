@@ -1,8 +1,8 @@
 config:
   alpha: 0.5
   beta: 10
-  disabled: true
-  dump_path: /data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13decode_history.json
+  disabled: false
+  dump_path: /data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13/decode_history.json
   min_instance: 1
   pull_threshold: 0.0
   push_threshold: 0.8

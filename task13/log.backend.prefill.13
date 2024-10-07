@@ -1,458 +1,329 @@
 app-vzucgzpq-848bb9b8b7-7nzhc 10.119.22.19 13
 Executing command: python -m lightllm.server.backend_pord_server --model_dir /data/basemodel/llama3.1/Meta-Llama-3.1-8B/ --max_req_total_len 140000 --max_req_input_len 135000 --max_total_token_num 320000 --parameter_cache /data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/ --host 10.119.22.19 --tp 1 --nccl_ip 10.119.22.36 --nccl_port 9999 --local_instance_num 8 --instance_id 13 --instance_num 32 --router_socket 10.119.22.19:13220 --detokenization_socket 10.119.22.36:31260 --dist_mode prefill --socket_server_addr_port 10.119.22.19:19220 --running_max_req_size 10 --batch_max_tokens 140010 --decode_scheduler_url 10.119.22.36:28000
-INFO 10-06 08:24:48.587 [backend_pord_server.py:167] pord server args: Namespace(host='10.119.22.19', port=8000, model_dir='/data/basemodel/llama3.1/Meta-Llama-3.1-8B/', tokenizer_mode='slow', load_way='HF', max_total_token_num=320000, batch_max_tokens=140010, eos_id=[2], running_max_req_size=10, tp=1, instance_id=13, local_instance_num=8, instance_num=32, max_req_input_len=135000, max_req_total_len=140000, nccl_ip='10.119.22.36', nccl_port=9999, mode=[], trust_remote_code=False, disable_log_stats=False, log_stats_interval=10, router_token_ratio=0.0, router_max_new_token_len=1024, router_max_wait_tokens=10, use_dynamic_prompt_cache=False, splitfuse_block_size=256, splitfuse_mode=False, beam_mode=False, diverse_mode=False, token_healing_mode=False, enable_multimodal=False, cache_capacity=200, cache_reserved_ratio=0.5, data_type='float16', return_all_prompt_logprobs=False, long_truncation_mode=None, use_tgi_api=False, health_monitor=False, node_gpu_count=8, dist_mode='prefill', decode_scheduler_url='10.119.22.36:28000', decode_scheduler_socket=None, detokenization_socket='10.119.22.36:31260', router_socket='10.119.22.19:13220', socket_server_addr_port='10.119.22.19:19220', parameter_cache='/data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/')
-INFO 10-06 08:24:52.450 [manager.py:1171] start router process with prefill 10.119.22.19:13220 10.119.22.36:31260 [10013]
+INFO 10-07 02:23:28.220 [backend_pord_server.py:167] pord server args: Namespace(host='10.119.22.19', port=8000, model_dir='/data/basemodel/llama3.1/Meta-Llama-3.1-8B/', tokenizer_mode='slow', load_way='HF', max_total_token_num=320000, batch_max_tokens=140010, eos_id=[2], running_max_req_size=10, tp=1, instance_id=13, local_instance_num=8, instance_num=32, max_req_input_len=135000, max_req_total_len=140000, nccl_ip='10.119.22.36', nccl_port=9999, mode=[], trust_remote_code=False, disable_log_stats=False, log_stats_interval=10, router_token_ratio=0.0, router_max_new_token_len=1024, router_max_wait_tokens=10, use_dynamic_prompt_cache=False, splitfuse_block_size=256, splitfuse_mode=False, beam_mode=False, diverse_mode=False, token_healing_mode=False, enable_multimodal=False, cache_capacity=200, cache_reserved_ratio=0.5, data_type='float16', return_all_prompt_logprobs=False, long_truncation_mode=None, use_tgi_api=False, health_monitor=False, node_gpu_count=8, dist_mode='prefill', decode_scheduler_url='10.119.22.36:28000', decode_scheduler_socket=None, detokenization_socket='10.119.22.36:31260', router_socket='10.119.22.19:13220', socket_server_addr_port='10.119.22.19:19220', parameter_cache='/data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/')
+INFO 10-07 02:23:33.151 [manager.py:1171] start router process with prefill 10.119.22.19:13220 10.119.22.36:31260 [10013]
 create shm 9999_13_mem_manger_can_use_token_num
 create shm 9999_13_shared_token_load
-INFO 10-06 08:28:15.022 [manager.py:147] router (pull) bind to 10.119.22.19:13220
-INFO 10-06 08:28:15.022 [manager.py:151] router (push) connect to 10.119.22.36:31260
-INFO 10-06 08:28:15.023 [model_rpc.py:42] use ContinuesBatchBackend
-INFO 10-06 08:28:27.136 [dist.py:51] pid=110576 global rank = 13 / 32, reduce group: start=13, end=14, gpu idx = 5
-INFO 10-06 08:28:29.678 [basemodel.py:156] load weights from parameter cache
-INFO 10-06 08:28:31.823 [mem_utils.py:11] mode setting params: []
-INFO 10-06 08:28:31.823 [mem_utils.py:23] Model kv cache using mode normal
-INFO 10-06 08:28:31.848 [mem_manager.py:57] mem manger get unique_name : 9999_13
+INFO 10-07 02:27:01.531 [manager.py:147] router (pull) bind to 10.119.22.19:13220
+INFO 10-07 02:27:01.531 [manager.py:151] router (push) connect to 10.119.22.36:31260
+INFO 10-07 02:27:01.532 [model_rpc.py:42] use ContinuesBatchBackend
+INFO 10-07 02:27:13.552 [dist.py:51] pid=162971 global rank = 13 / 32, reduce group: start=13, end=14, gpu idx = 5
+INFO 10-07 02:27:16.115 [basemodel.py:156] load weights from parameter cache
+INFO 10-07 02:27:18.143 [mem_utils.py:11] mode setting params: []
+INFO 10-07 02:27:18.143 [mem_utils.py:23] Model kv cache using mode normal
+INFO 10-07 02:27:18.155 [mem_manager.py:57] mem manger get unique_name : 9999_13
 link shm 9999_13_mem_manger_can_use_token_num
-INFO 10-06 08:28:32.688 [base_backend.py:261] loaded model class <class 'lightllm.models.llama.model.LlamaTpPartModel'>
-INFO 10-06 08:28:32.688 [manager.py:421] use req queue ContinuesBatchQueue
-INFO 10-06 08:28:32.689 [dist.py:57] re-set device to 5
-INFO 10-06 08:28:32.688 [start_utils.py:29] init func start_router_process : init ok
-INFO 10-06 08:28:32.689 [dist.py:57] re-set device to 5
-INFO 10-06 08:28:32.690 [manager.py:370] start socket server at 10.119.22.19:19220
-INFO 10-06 08:30:44.740 [impl.py:39] after adding new req, max_size: 6035
-INFO 10-06 08:30:44.740 [manager.py:668] start prefill req_id = 88 group_req_id = 88 at 08:30:44.740
-INFO 10-06 08:30:44.740 [manager.py:619] requst decode for req_ids=[88] which needs 6036 tokens
-INFO 10-06 08:30:44.747 [manager.py:64] MEASURE request_for_decode_scheduler cost 0.00696253776550293 s
-INFO 10-06 08:30:44.781 [manager.py:64] MEASURE init_batch cost 0.03353619575500488 s
-INFO 10-06 08:30:44.781 [manager.py:708] send req_ids = [88] to decode scheduler
-/data/fanyunqian/ela-1004/ela-1004distkv/lightllm/lightllm/common/mem_manager.py:353: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
-  self.layer_cnt[p2p_idx][1] = torch.tensor(prefill_tokens, dtype=torch.int32, device='cuda')
-INFO 10-06 08:30:46.569 [manager.py:64] MEASURE prefill_batch cost 0.6742081642150879 s
-INFO 10-06 08:30:46.570 [manager.py:689] end prefill req_id = 88 group_req_id = 88 at 08:30:46.570
-INFO 10-06 08:30:46.582 [manager.py:698] end prefill all things req_id = 88 group_req_id = 88 at 08:30:46.582
-INFO 10-06 08:30:46.584 [manager.py:701] all take 1.842
-INFO 10-06 08:30:46.594 [impl.py:39] after adding new req, max_size: 1585
-INFO 10-06 08:30:46.595 [impl.py:39] after adding new req, max_size: 3512
-INFO 10-06 08:30:46.595 [impl.py:39] after adding new req, max_size: 9759
-INFO 10-06 08:30:46.595 [manager.py:668] start prefill req_id = 280 group_req_id = 280 at 08:30:46.595
-INFO 10-06 08:30:46.595 [manager.py:668] start prefill req_id = 472 group_req_id = 472 at 08:30:46.595
-INFO 10-06 08:30:46.595 [manager.py:668] start prefill req_id = 664 group_req_id = 664 at 08:30:46.595
-INFO 10-06 08:30:46.595 [manager.py:619] requst decode for req_ids=[280, 472, 664] which needs 10072 tokens
-INFO 10-06 08:30:47.415 [manager.py:64] MEASURE request_for_decode_scheduler cost 0.8198931217193604 s
-INFO 10-06 08:30:47.416 [manager.py:64] MEASURE init_batch cost 0.0011601448059082031 s
-INFO 10-06 08:30:47.417 [manager.py:708] send req_ids = [280, 472, 664] to decode scheduler
-INFO 10-06 08:30:53.261 [manager.py:64] MEASURE prefill_batch cost 0.9574813842773438 s
-INFO 10-06 08:30:53.261 [manager.py:689] end prefill req_id = 280 group_req_id = 280 at 08:30:53.261
-INFO 10-06 08:30:53.261 [manager.py:689] end prefill req_id = 472 group_req_id = 472 at 08:30:53.261
-INFO 10-06 08:30:53.262 [manager.py:689] end prefill req_id = 664 group_req_id = 664 at 08:30:53.261
-INFO 10-06 08:30:53.262 [manager.py:698] end prefill all things req_id = 280 group_req_id = 280 at 08:30:53.262
-INFO 10-06 08:30:53.262 [manager.py:698] end prefill all things req_id = 472 group_req_id = 472 at 08:30:53.262
-INFO 10-06 08:30:53.262 [manager.py:698] end prefill all things req_id = 664 group_req_id = 664 at 08:30:53.262
-INFO 10-06 08:30:53.262 [manager.py:701] all take 6.667
-INFO 10-06 08:30:53.273 [impl.py:39] after adding new req, max_size: 1522
-INFO 10-06 08:30:53.273 [impl.py:39] after adding new req, max_size: 3565
-INFO 10-06 08:30:53.273 [impl.py:39] after adding new req, max_size: 5427
-INFO 10-06 08:30:53.273 [impl.py:39] after adding new req, max_size: 65083
-INFO 10-06 08:30:53.273 [manager.py:668] start prefill req_id = 856 group_req_id = 856 at 08:30:53.273
-INFO 10-06 08:30:53.273 [manager.py:668] start prefill req_id = 1048 group_req_id = 1048 at 08:30:53.273
-INFO 10-06 08:30:53.273 [manager.py:668] start prefill req_id = 1240 group_req_id = 1240 at 08:30:53.273
-INFO 10-06 08:30:53.273 [manager.py:668] start prefill req_id = 1432 group_req_id = 1432 at 08:30:53.273
-INFO 10-06 08:30:53.273 [manager.py:619] requst decode for req_ids=[856, 1048, 1240, 1432] which needs 65358 tokens
-INFO 10-06 08:30:59.737 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:31:10.333 [manager.py:64] MEASURE request_for_decode_scheduler cost 17.059706211090088 s
-INFO 10-06 08:31:10.338 [manager.py:64] MEASURE init_batch cost 0.0050733089447021484 s
-INFO 10-06 08:31:10.342 [manager.py:708] send req_ids = [856, 1048, 1240, 1432] to decode scheduler
-INFO 10-06 08:31:40.818 [manager.py:64] MEASURE prefill_batch cost 13.064709186553955 s
-INFO 10-06 08:31:40.818 [manager.py:689] end prefill req_id = 856 group_req_id = 856 at 08:31:40.818
-INFO 10-06 08:31:40.819 [manager.py:689] end prefill req_id = 1048 group_req_id = 1048 at 08:31:40.818
-INFO 10-06 08:31:40.819 [manager.py:689] end prefill req_id = 1240 group_req_id = 1240 at 08:31:40.818
-INFO 10-06 08:31:40.819 [manager.py:689] end prefill req_id = 1432 group_req_id = 1432 at 08:31:40.818
-INFO 10-06 08:31:40.821 [manager.py:698] end prefill all things req_id = 856 group_req_id = 856 at 08:31:40.821
-INFO 10-06 08:31:40.821 [manager.py:698] end prefill all things req_id = 1048 group_req_id = 1048 at 08:31:40.821
-INFO 10-06 08:31:40.821 [manager.py:698] end prefill all things req_id = 1240 group_req_id = 1240 at 08:31:40.821
-INFO 10-06 08:31:40.822 [manager.py:698] end prefill all things req_id = 1432 group_req_id = 1432 at 08:31:40.821
-INFO 10-06 08:31:40.822 [manager.py:701] all take 47.548
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 1672
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 2133
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 4286
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 27839
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 28413
-INFO 10-06 08:31:40.832 [impl.py:39] after adding new req, max_size: 32390
-INFO 10-06 08:31:40.833 [impl.py:39] after adding new req, max_size: 35952
-INFO 10-06 08:31:40.833 [impl.py:39] after adding new req, max_size: 41317
-INFO 10-06 08:31:40.833 [impl.py:39] after adding new req, max_size: 47038
-INFO 10-06 08:31:40.833 [impl.py:39] after adding new req, max_size: 49645
-INFO 10-06 08:31:40.833 [impl.py:39] after adding new req, max_size: 53378
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 1624 group_req_id = 1624 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 1816 group_req_id = 1816 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2008 group_req_id = 2008 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2200 group_req_id = 2200 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2392 group_req_id = 2392 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2584 group_req_id = 2584 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2776 group_req_id = 2776 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 2968 group_req_id = 2968 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 3160 group_req_id = 3160 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:668] start prefill req_id = 3352 group_req_id = 3352 at 08:31:40.833
-INFO 10-06 08:31:40.833 [manager.py:619] requst decode for req_ids=[1624, 1816, 2008, 2200, 2392, 2584, 2776, 2968, 3160, 3352] which needs 50947 tokens
-INFO 10-06 08:31:48.260 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:31:59.344 [manager.py:64] MEASURE request_for_decode_scheduler cost 18.511108875274658 s
-INFO 10-06 08:31:59.348 [manager.py:64] MEASURE init_batch cost 0.0037674903869628906 s
-INFO 10-06 08:31:59.351 [manager.py:708] send req_ids = [1624, 1816, 2008, 2200, 2392, 2584, 2776, 2968, 3160, 3352] to decode scheduler
-INFO 10-06 08:32:06.590 [manager.py:64] MEASURE prefill_batch cost 7.237622261047363 s
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 1624 group_req_id = 1624 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 1816 group_req_id = 1816 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2008 group_req_id = 2008 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2200 group_req_id = 2200 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2392 group_req_id = 2392 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2584 group_req_id = 2584 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2776 group_req_id = 2776 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 2968 group_req_id = 2968 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 3160 group_req_id = 3160 at 08:32:06.590
-INFO 10-06 08:32:06.590 [manager.py:689] end prefill req_id = 3352 group_req_id = 3352 at 08:32:06.590
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 1624 group_req_id = 1624 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 1816 group_req_id = 1816 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2008 group_req_id = 2008 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2200 group_req_id = 2200 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2392 group_req_id = 2392 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2584 group_req_id = 2584 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2776 group_req_id = 2776 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 2968 group_req_id = 2968 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 3160 group_req_id = 3160 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:698] end prefill all things req_id = 3352 group_req_id = 3352 at 08:32:06.593
-INFO 10-06 08:32:06.593 [manager.py:701] all take 25.76
-INFO 10-06 08:32:06.610 [impl.py:39] after adding new req, max_size: 3824
-INFO 10-06 08:32:06.610 [impl.py:39] after adding new req, max_size: 9057
-INFO 10-06 08:32:06.610 [impl.py:39] after adding new req, max_size: 9732
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 12560
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 70784
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 74654
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 75591
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 76976
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 77655
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 133938
-INFO 10-06 08:32:06.611 [impl.py:39] after adding new req, max_size: 135395
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 3544 group_req_id = 3544 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 3736 group_req_id = 3736 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 3928 group_req_id = 3928 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 4120 group_req_id = 4120 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 4312 group_req_id = 4312 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 4504 group_req_id = 4504 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 4696 group_req_id = 4696 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 4888 group_req_id = 4888 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 5080 group_req_id = 5080 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:668] start prefill req_id = 5272 group_req_id = 5272 at 08:32:06.611
-INFO 10-06 08:32:06.611 [manager.py:619] requst decode for req_ids=[3544, 3736, 3928, 4120, 4312, 4504, 4696, 4888, 5080, 5272] which needs 134928 tokens
-INFO 10-06 08:32:20.456 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:32:35.990 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:32:55.793 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:33:01.105 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:33:17.192 [manager.py:64] MEASURE request_for_decode_scheduler cost 70.58126664161682 s
-INFO 10-06 08:33:17.202 [manager.py:64] MEASURE init_batch cost 0.009444713592529297 s
-INFO 10-06 08:33:17.210 [manager.py:708] send req_ids = [3544, 3736, 3928, 4120, 4312, 4504, 4696, 4888, 5080, 5272] to decode scheduler
-INFO 10-06 08:33:42.422 [manager.py:64] MEASURE prefill_batch cost 24.874876499176025 s
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 3544 group_req_id = 3544 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 3736 group_req_id = 3736 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 3928 group_req_id = 3928 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 4120 group_req_id = 4120 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 4312 group_req_id = 4312 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 4504 group_req_id = 4504 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 4696 group_req_id = 4696 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 4888 group_req_id = 4888 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 5080 group_req_id = 5080 at 08:33:42.422
-INFO 10-06 08:33:42.422 [manager.py:689] end prefill req_id = 5272 group_req_id = 5272 at 08:33:42.422
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 3544 group_req_id = 3544 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 3736 group_req_id = 3736 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 3928 group_req_id = 3928 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 4120 group_req_id = 4120 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 4312 group_req_id = 4312 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 4504 group_req_id = 4504 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 4696 group_req_id = 4696 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 4888 group_req_id = 4888 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 5080 group_req_id = 5080 at 08:33:42.423
-INFO 10-06 08:33:42.423 [manager.py:698] end prefill all things req_id = 5272 group_req_id = 5272 at 08:33:42.423
-INFO 10-06 08:33:42.424 [manager.py:701] all take 95.812
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 1627
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 2308
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 6136
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 6795
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 7267
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 8142
-INFO 10-06 08:33:42.436 [impl.py:39] after adding new req, max_size: 8784
-INFO 10-06 08:33:42.437 [impl.py:39] after adding new req, max_size: 10204
-INFO 10-06 08:33:42.437 [impl.py:39] after adding new req, max_size: 11500
-INFO 10-06 08:33:42.437 [impl.py:39] after adding new req, max_size: 16218
-INFO 10-06 08:33:42.437 [impl.py:39] after adding new req, max_size: 16821
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 5464 group_req_id = 5464 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 5656 group_req_id = 5656 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 5848 group_req_id = 5848 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 6040 group_req_id = 6040 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 6232 group_req_id = 6232 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 6424 group_req_id = 6424 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 6616 group_req_id = 6616 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 6808 group_req_id = 6808 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 7000 group_req_id = 7000 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:668] start prefill req_id = 7192 group_req_id = 7192 at 08:33:42.437
-INFO 10-06 08:33:42.437 [manager.py:619] requst decode for req_ids=[5464, 5656, 5848, 6040, 6232, 6424, 6616, 6808, 7000, 7192] which needs 17085 tokens
-INFO 10-06 08:33:46.677 [manager.py:64] MEASURE request_for_decode_scheduler cost 4.23971700668335 s
-INFO 10-06 08:33:46.679 [manager.py:64] MEASURE init_batch cost 0.0017523765563964844 s
-INFO 10-06 08:33:46.680 [manager.py:708] send req_ids = [5464, 5656, 5848, 6040, 6232, 6424, 6616, 6808, 7000, 7192] to decode scheduler
-INFO 10-06 08:33:48.350 [manager.py:64] MEASURE prefill_batch cost 1.0469896793365479 s
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 5464 group_req_id = 5464 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 5656 group_req_id = 5656 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 5848 group_req_id = 5848 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 6040 group_req_id = 6040 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 6232 group_req_id = 6232 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 6424 group_req_id = 6424 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 6616 group_req_id = 6616 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 6808 group_req_id = 6808 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 7000 group_req_id = 7000 at 08:33:48.350
-INFO 10-06 08:33:48.350 [manager.py:689] end prefill req_id = 7192 group_req_id = 7192 at 08:33:48.350
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 5464 group_req_id = 5464 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 5656 group_req_id = 5656 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 5848 group_req_id = 5848 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 6040 group_req_id = 6040 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 6232 group_req_id = 6232 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 6424 group_req_id = 6424 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 6616 group_req_id = 6616 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 6808 group_req_id = 6808 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 7000 group_req_id = 7000 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:698] end prefill all things req_id = 7192 group_req_id = 7192 at 08:33:49.090
-INFO 10-06 08:33:49.090 [manager.py:701] all take 6.653
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 614
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 8513
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 12847
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 14328
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 15214
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 15858
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 16470
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 17365
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 24653
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 25348
-INFO 10-06 08:33:49.101 [impl.py:39] after adding new req, max_size: 25782
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 7384 group_req_id = 7384 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 7576 group_req_id = 7576 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 7768 group_req_id = 7768 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 7960 group_req_id = 7960 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 8152 group_req_id = 8152 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 8344 group_req_id = 8344 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 8536 group_req_id = 8536 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 8728 group_req_id = 8728 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 8920 group_req_id = 8920 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:668] start prefill req_id = 9112 group_req_id = 9112 at 08:33:49.102
-INFO 10-06 08:33:49.102 [manager.py:619] requst decode for req_ids=[7384, 7576, 7768, 7960, 8152, 8344, 8536, 8728, 8920, 9112] which needs 26835 tokens
-INFO 10-06 08:34:06.503 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:34:08.514 [manager.py:64] MEASURE request_for_decode_scheduler cost 19.412655115127563 s
-INFO 10-06 08:34:08.517 [manager.py:64] MEASURE init_batch cost 0.002357959747314453 s
-INFO 10-06 08:34:08.518 [manager.py:708] send req_ids = [7384, 7576, 7768, 7960, 8152, 8344, 8536, 8728, 8920, 9112] to decode scheduler
-INFO 10-06 08:34:10.857 [manager.py:64] MEASURE prefill_batch cost 1.859426736831665 s
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 7384 group_req_id = 7384 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 7576 group_req_id = 7576 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 7768 group_req_id = 7768 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 7960 group_req_id = 7960 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 8152 group_req_id = 8152 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 8344 group_req_id = 8344 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 8536 group_req_id = 8536 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 8728 group_req_id = 8728 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 8920 group_req_id = 8920 at 08:34:10.857
-INFO 10-06 08:34:10.857 [manager.py:689] end prefill req_id = 9112 group_req_id = 9112 at 08:34:10.857
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 7384 group_req_id = 7384 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 7576 group_req_id = 7576 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 7768 group_req_id = 7768 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 7960 group_req_id = 7960 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 8152 group_req_id = 8152 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 8344 group_req_id = 8344 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 8536 group_req_id = 8536 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 8728 group_req_id = 8728 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 8920 group_req_id = 8920 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:698] end prefill all things req_id = 9112 group_req_id = 9112 at 08:34:11.349
-INFO 10-06 08:34:11.349 [manager.py:701] all take 22.247
-INFO 10-06 08:34:11.359 [impl.py:39] after adding new req, max_size: 502
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 1898
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 8754
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 23405
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 24275
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 65967
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 68749
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 126983
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 128028
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 129252
-INFO 10-06 08:34:11.360 [impl.py:39] after adding new req, max_size: 131520
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 9304 group_req_id = 9304 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 9496 group_req_id = 9496 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 9688 group_req_id = 9688 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 9880 group_req_id = 9880 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 10072 group_req_id = 10072 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 10264 group_req_id = 10264 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 10456 group_req_id = 10456 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 10648 group_req_id = 10648 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 10840 group_req_id = 10840 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:668] start prefill req_id = 11032 group_req_id = 11032 at 08:34:11.360
-INFO 10-06 08:34:11.360 [manager.py:619] requst decode for req_ids=[9304, 9496, 9688, 9880, 10072, 10264, 10456, 10648, 10840, 11032] which needs 130142 tokens
-INFO 10-06 08:34:29.731 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:34:51.860 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:35:07.613 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:35:13.891 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:35:30.992 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:35:48.075 [manager.py:64] MEASURE request_for_decode_scheduler cost 96.71421813964844 s
-INFO 10-06 08:35:48.084 [manager.py:64] MEASURE init_batch cost 0.009012460708618164 s
-INFO 10-06 08:35:48.092 [manager.py:708] send req_ids = [9304, 9496, 9688, 9880, 10072, 10264, 10456, 10648, 10840, 11032] to decode scheduler
-INFO 10-06 08:36:09.574 [manager.py:64] MEASURE prefill_batch cost 21.48055338859558 s
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 9304 group_req_id = 9304 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 9496 group_req_id = 9496 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 9688 group_req_id = 9688 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 9880 group_req_id = 9880 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 10072 group_req_id = 10072 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 10264 group_req_id = 10264 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 10456 group_req_id = 10456 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 10648 group_req_id = 10648 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 10840 group_req_id = 10840 at 08:36:09.574
-INFO 10-06 08:36:09.575 [manager.py:689] end prefill req_id = 11032 group_req_id = 11032 at 08:36:09.574
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 9304 group_req_id = 9304 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 9496 group_req_id = 9496 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 9688 group_req_id = 9688 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 9880 group_req_id = 9880 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 10072 group_req_id = 10072 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 10264 group_req_id = 10264 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 10456 group_req_id = 10456 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 10648 group_req_id = 10648 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 10840 group_req_id = 10840 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:698] end prefill all things req_id = 11032 group_req_id = 11032 at 08:36:09.576
-INFO 10-06 08:36:09.576 [manager.py:701] all take 118.216
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 2453
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 4312
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 10771
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 14327
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 15901
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 17301
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 129697
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 131546
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 131794
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 139995
-INFO 10-06 08:36:09.589 [impl.py:39] after adding new req, max_size: 142354
-INFO 10-06 08:36:09.589 [manager.py:668] start prefill req_id = 11224 group_req_id = 11224 at 08:36:09.589
-INFO 10-06 08:36:09.589 [manager.py:668] start prefill req_id = 11416 group_req_id = 11416 at 08:36:09.589
-INFO 10-06 08:36:09.589 [manager.py:668] start prefill req_id = 11608 group_req_id = 11608 at 08:36:09.589
-INFO 10-06 08:36:09.589 [manager.py:668] start prefill req_id = 11800 group_req_id = 11800 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 11992 group_req_id = 11992 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 12184 group_req_id = 12184 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 12376 group_req_id = 12376 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 12568 group_req_id = 12568 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 12760 group_req_id = 12760 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:668] start prefill req_id = 12952 group_req_id = 12952 at 08:36:09.589
-INFO 10-06 08:36:09.590 [manager.py:619] requst decode for req_ids=[11224, 11416, 11608, 11800, 11992, 12184, 12376, 12568, 12760, 12952] which needs 141294 tokens
-INFO 10-06 08:36:22.549 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:36:45.587 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:37:06.667 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:37:31.776 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:37:53.850 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:38:11.239 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:38:34.293 [manager.py:64] MEASURE request_for_decode_scheduler cost 144.70327258110046 s
-INFO 10-06 08:38:34.303 [manager.py:64] MEASURE init_batch cost 0.010291576385498047 s
-INFO 10-06 08:38:34.312 [manager.py:708] send req_ids = [11224, 11416, 11608, 11800, 11992, 12184, 12376, 12568, 12760, 12952] to decode scheduler
-INFO 10-06 08:39:15.388 [manager.py:64] MEASURE prefill_batch cost 40.735806703567505 s
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 11224 group_req_id = 11224 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 11416 group_req_id = 11416 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 11608 group_req_id = 11608 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 11800 group_req_id = 11800 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 11992 group_req_id = 11992 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 12184 group_req_id = 12184 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 12376 group_req_id = 12376 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 12568 group_req_id = 12568 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 12760 group_req_id = 12760 at 08:39:15.388
-INFO 10-06 08:39:15.388 [manager.py:689] end prefill req_id = 12952 group_req_id = 12952 at 08:39:15.388
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 11224 group_req_id = 11224 at 08:39:15.389
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 11416 group_req_id = 11416 at 08:39:15.389
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 11608 group_req_id = 11608 at 08:39:15.389
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 11800 group_req_id = 11800 at 08:39:15.389
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 11992 group_req_id = 11992 at 08:39:15.389
-INFO 10-06 08:39:15.389 [manager.py:698] end prefill all things req_id = 12184 group_req_id = 12184 at 08:39:15.389
-INFO 10-06 08:39:15.390 [manager.py:698] end prefill all things req_id = 12376 group_req_id = 12376 at 08:39:15.389
-INFO 10-06 08:39:15.390 [manager.py:698] end prefill all things req_id = 12568 group_req_id = 12568 at 08:39:15.389
-INFO 10-06 08:39:15.390 [manager.py:698] end prefill all things req_id = 12760 group_req_id = 12760 at 08:39:15.389
-INFO 10-06 08:39:15.390 [manager.py:698] end prefill all things req_id = 12952 group_req_id = 12952 at 08:39:15.389
-INFO 10-06 08:39:15.390 [manager.py:701] all take 185.8
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 2518
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 3716
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 6202
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 8578
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 10035
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 10526
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 69029
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 70441
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 70946
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 71624
-INFO 10-06 08:39:15.403 [impl.py:39] after adding new req, max_size: 94636
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 13144 group_req_id = 13144 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 13336 group_req_id = 13336 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 13528 group_req_id = 13528 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 13720 group_req_id = 13720 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 13912 group_req_id = 13912 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 14104 group_req_id = 14104 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 14296 group_req_id = 14296 at 08:39:15.403
-INFO 10-06 08:39:15.403 [manager.py:668] start prefill req_id = 14488 group_req_id = 14488 at 08:39:15.403
-INFO 10-06 08:39:15.404 [manager.py:668] start prefill req_id = 14680 group_req_id = 14680 at 08:39:15.403
-INFO 10-06 08:39:15.404 [manager.py:668] start prefill req_id = 14872 group_req_id = 14872 at 08:39:15.403
-INFO 10-06 08:39:15.404 [manager.py:619] requst decode for req_ids=[13144, 13336, 13528, 13720, 13912, 14104, 14296, 14488, 14680, 14872] which needs 73035 tokens
-INFO 10-06 08:39:30.636 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:39:46.831 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:39:52.723 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:40:11.892 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:40:31.960 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:40:47.211 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:40:50.556 [manager.py:64] MEASURE request_for_decode_scheduler cost 95.15260004997253 s
-INFO 10-06 08:40:50.562 [manager.py:64] MEASURE init_batch cost 0.005377054214477539 s
-INFO 10-06 08:40:50.566 [manager.py:708] send req_ids = [13144, 13336, 13528, 13720, 13912, 14104, 14296, 14488, 14680, 14872] to decode scheduler
-INFO 10-06 08:41:03.519 [manager.py:64] MEASURE prefill_batch cost 12.951692819595337 s
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 13144 group_req_id = 13144 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 13336 group_req_id = 13336 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 13528 group_req_id = 13528 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 13720 group_req_id = 13720 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 13912 group_req_id = 13912 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 14104 group_req_id = 14104 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 14296 group_req_id = 14296 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 14488 group_req_id = 14488 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 14680 group_req_id = 14680 at 08:41:03.520
-INFO 10-06 08:41:03.520 [manager.py:689] end prefill req_id = 14872 group_req_id = 14872 at 08:41:03.520
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 13144 group_req_id = 13144 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 13336 group_req_id = 13336 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 13528 group_req_id = 13528 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 13720 group_req_id = 13720 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 13912 group_req_id = 13912 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 14104 group_req_id = 14104 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 14296 group_req_id = 14296 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 14488 group_req_id = 14488 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 14680 group_req_id = 14680 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:698] end prefill all things req_id = 14872 group_req_id = 14872 at 08:41:03.521
-INFO 10-06 08:41:03.521 [manager.py:701] all take 108.118
-INFO 10-06 08:41:03.533 [impl.py:39] after adding new req, max_size: 23012
-INFO 10-06 08:41:03.533 [impl.py:39] after adding new req, max_size: 25493
-INFO 10-06 08:41:03.533 [manager.py:668] start prefill req_id = 15064 group_req_id = 15064 at 08:41:03.533
-INFO 10-06 08:41:03.533 [manager.py:668] start prefill req_id = 15256 group_req_id = 15256 at 08:41:03.533
-INFO 10-06 08:41:03.533 [manager.py:619] requst decode for req_ids=[15064, 15256] which needs 25666 tokens
-INFO 10-06 08:41:20.613 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:41:42.719 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:42:03.790 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:42:18.830 [manager.py:642] no target rank, wait for 1s
-INFO 10-06 08:42:37.649 [manager.py:64] MEASURE request_for_decode_scheduler cost 94.11608862876892 s
-INFO 10-06 08:42:37.652 [manager.py:64] MEASURE init_batch cost 0.002351045608520508 s
-INFO 10-06 08:42:37.653 [manager.py:708] send req_ids = [15064, 15256] to decode scheduler
-INFO 10-06 08:42:40.596 [manager.py:64] MEASURE prefill_batch cost 2.9416961669921875 s
-INFO 10-06 08:42:40.597 [manager.py:689] end prefill req_id = 15064 group_req_id = 15064 at 08:42:40.597
-INFO 10-06 08:42:40.597 [manager.py:689] end prefill req_id = 15256 group_req_id = 15256 at 08:42:40.597
-INFO 10-06 08:42:40.817 [manager.py:698] end prefill all things req_id = 15064 group_req_id = 15064 at 08:42:40.817
-INFO 10-06 08:42:40.817 [manager.py:698] end prefill all things req_id = 15256 group_req_id = 15256 at 08:42:40.817
-INFO 10-06 08:42:40.817 [manager.py:701] all take 97.284
-INFO 10-06 08:43:50.067 [manager.py:565] the req info
-INFO 10-06 08:43:50.067 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
-INFO 10-06 08:47:11.529 [manager.py:565] the req info
-INFO 10-06 08:47:11.529 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
-INFO 10-06 08:50:33.006 [manager.py:565] the req info
-INFO 10-06 08:50:33.006 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
-INFO 10-06 08:53:54.434 [manager.py:565] the req info
-INFO 10-06 08:53:54.434 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
-INFO 10-06 08:57:15.853 [manager.py:565] the req info
-INFO 10-06 08:57:15.853 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
-INFO 10-06 09:00:37.316 [manager.py:565] the req info
-INFO 10-06 09:00:37.316 [manager.py:565]  {88: ['08:30:44.732', '08:30:45.895'], 280: ['08:30:45.896', '08:30:52.304'], 472: ['08:30:46.571', '08:30:52.304'], 664: ['08:30:46.582', '08:30:52.304'], 856: ['08:30:46.679', '08:31:27.754'], 1048: ['08:30:46.794', '08:31:27.754'], 1240: ['08:30:46.978', '08:31:27.754'], 1432: ['08:30:52.343', '08:31:27.754'], 1624: ['08:30:54.595', '08:31:59.352'], 1816: ['08:30:54.692', '08:31:59.352'], 2008: ['08:30:54.786', '08:31:59.352'], 2200: ['08:30:55.815', '08:31:59.352'], 2392: ['08:30:55.891', '08:31:59.352'], 2584: ['08:30:55.989', '08:31:59.352'], 2776: ['08:30:56.401', '08:31:59.352'], 2968: ['08:30:56.582', '08:31:59.352'], 3160: ['08:30:56.748', '08:31:59.352'], 3352: ['08:31:00.866', '08:31:59.352'], 3544: ['08:31:01.262', '08:33:17.547'], 3736: ['08:31:01.532', '08:33:17.547'], 3928: ['08:31:01.984', '08:33:17.547'], 4120: ['08:31:02.136', '08:33:17.547'], 4312: ['08:31:08.074', '08:33:17.547'], 4504: ['08:31:09.162', '08:33:17.547'], 4696: ['08:31:10.076', '08:33:17.547'], 4888: ['08:31:10.183', '08:33:17.547'], 5080: ['08:31:27.753', '08:33:17.547'], 5272: ['08:31:40.818', '08:33:17.547'], 5464: ['08:31:40.820', '08:33:47.303'], 5656: ['08:31:40.821', '08:33:47.303'], 5848: ['08:31:40.825', '08:33:47.303'], 6040: ['08:31:40.825', '08:33:47.303'], 6232: ['08:31:40.826', '08:33:47.303'], 6424: ['08:31:40.826', '08:33:47.303'], 6616: ['08:31:40.827', '08:33:47.303'], 6808: ['08:31:40.828', '08:33:47.303'], 7000: ['08:31:40.829', '08:33:47.303'], 7192: ['08:31:40.832', '08:33:47.303'], 7384: ['08:31:40.840', '08:34:08.997'], 7576: ['08:31:40.845', '08:34:08.997'], 7768: ['08:31:40.848', '08:34:08.997'], 7960: ['08:31:40.849', '08:34:08.997'], 8152: ['08:31:40.850', '08:34:08.997'], 8344: ['08:31:40.851', '08:34:08.997'], 8536: ['08:31:40.851', '08:34:08.997'], 8728: ['08:31:40.852', '08:34:08.997'], 8920: ['08:31:40.857', '08:34:08.997'], 9112: ['08:31:40.857', '08:34:08.997'], 9304: ['08:31:40.858', '08:35:48.094'], 9496: ['08:31:40.859', '08:35:48.094'], 9688: ['08:31:40.863', '08:35:48.094'], 9880: ['08:31:40.873', '08:35:48.094'], 10072: ['08:31:40.874', '08:35:48.094'], 10264: ['08:31:40.905', '08:35:48.094'], 10456: ['08:31:40.907', '08:35:48.094'], 10648: ['08:31:40.948', '08:35:48.094'], 10840: ['08:31:40.949', '08:35:48.094'], 11032: ['08:31:40.949', '08:35:48.094'], 11224: ['08:31:40.951', '08:38:34.652'], 11416: ['08:31:40.952', '08:38:34.652'], 11608: ['08:31:40.957', '08:38:34.652'], 11800: ['08:31:41.304', '08:38:34.652'], 11992: ['08:31:43.619', '08:38:34.652'], 12184: ['08:31:43.747', '08:38:34.652'], 12376: ['08:31:45.594', '08:38:34.652'], 12568: ['08:31:51.748', '08:38:34.652'], 12760: ['08:31:51.832', '08:38:34.652'], 12952: ['08:31:53.709', '08:38:34.652'], 13144: ['08:31:53.855', '08:40:50.568'], 13336: ['08:31:54.020', '08:40:50.568'], 13528: ['08:31:55.046', '08:40:50.568'], 13720: ['08:31:55.178', '08:40:50.568'], 13912: ['08:31:55.318', '08:40:50.568'], 14104: ['08:31:55.431', '08:40:50.568'], 14296: ['08:31:56.982', '08:40:50.568'], 14488: ['08:32:06.592', '08:40:50.568'], 14680: ['08:32:06.593', '08:40:50.568'], 14872: ['08:32:06.594', '08:40:50.568'], 15064: ['08:32:06.610', '08:42:37.655'], 15256: ['08:32:06.628', '08:42:37.655']}
+INFO 10-07 02:27:19.066 [base_backend.py:261] loaded model class <class 'lightllm.models.llama.model.LlamaTpPartModel'>
+INFO 10-07 02:27:19.066 [manager.py:421] use req queue ContinuesBatchQueue
+INFO 10-07 02:27:19.067 [dist.py:57] re-set device to 5
+INFO 10-07 02:27:19.067 [start_utils.py:29] init func start_router_process : init ok
+INFO 10-07 02:27:19.068 [dist.py:57] re-set device to 5
+INFO 10-07 02:27:19.069 [manager.py:370] start socket server at 10.119.22.19:19220
+INFO 10-07 02:27:21.677 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:21.677 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:21.677 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:21.677 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:21.870 [manager.py:1129] recv elastic req ElasticReq(action=shutdown, idx=11, dist_type=prefill)
+INFO 10-07 02:27:21.871 [manager.py:1137] finish elastic req ElasticReq(action=shutdown, idx=11, dist_type=prefill)
+CRITICAL 10-07 02:27:21.872 [mem_manager.py:126] free kv buffer from mem manager
+INFO 10-07 02:27:22.427 [basemodel.py:174] free 58003.562496 Mbytes after clear weight, 315.91168 Mbytes used
+INFO 10-07 02:27:24.931 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:24.931 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:24.931 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:24.931 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:26.942 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:26.942 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:26.943 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:26.943 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:29.073 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:29.074 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:29.074 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:29.074 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:31.087 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:31.087 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:31.087 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:31.087 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:33.115 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:33.115 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:33.115 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:33.115 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:35.150 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:35.151 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:35.151 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:35.151 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:37.159 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:37.159 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:37.159 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:37.159 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:39.199 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:39.199 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:39.199 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:39.199 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:41.210 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:41.210 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:41.210 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:41.210 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:43.221 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:43.221 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:43.221 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:43.221 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:45.231 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:45.232 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:45.232 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:45.232 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:47.242 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:47.242 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:47.242 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:47.242 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:49.251 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:49.251 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:49.251 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:49.251 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:51.262 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:51.262 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:51.262 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:51.262 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:53.271 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:53.271 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:53.271 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:53.271 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:55.283 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:55.283 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:55.283 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:55.283 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:57.292 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:57.293 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:57.293 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:57.293 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:59.305 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:59.305 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:59.305 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:59.305 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:01.317 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:01.317 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:01.317 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:01.317 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:03.332 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:03.332 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:03.332 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:03.332 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:05.343 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:05.343 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:05.343 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:05.343 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:07.355 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:07.355 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:07.355 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:07.355 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:09.365 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:09.365 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:09.365 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:09.365 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:11.378 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:11.378 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:11.378 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:11.378 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:13.388 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:13.389 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:13.389 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:13.389 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:15.492 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:15.492 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:15.492 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:15.492 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:17.502 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:17.502 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:17.502 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:17.502 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:19.515 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:19.515 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:19.515 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:19.515 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:21.526 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:21.526 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:21.526 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:21.526 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:23.583 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:23.583 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:23.583 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:23.583 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:25.594 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:25.594 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:25.594 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:25.594 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:27.610 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:27.610 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:27.610 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:27.610 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:29.621 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:29.621 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:29.621 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:29.621 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:31.634 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:31.634 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:31.634 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:31.634 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:33.647 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:33.647 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:33.647 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:33.647 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:35.696 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:35.696 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:35.696 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:35.696 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:37.707 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:37.708 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:37.708 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:37.708 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:39.721 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:39.721 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:39.721 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:39.721 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:41.732 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:41.732 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:41.732 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:41.732 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:43.750 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:43.751 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:43.751 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:43.751 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:45.763 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:45.763 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:45.763 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:45.763 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:47.788 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:47.789 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:47.789 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:47.789 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:49.805 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:49.805 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:49.805 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:49.805 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:51.818 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:51.818 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:51.818 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:51.818 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:53.868 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:53.868 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:53.868 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:53.868 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:55.884 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:55.884 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:55.884 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:55.885 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:57.899 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:57.899 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:57.899 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:57.899 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:59.918 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:59.918 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:59.918 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:59.918 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:02.124 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:02.125 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:02.125 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:02.125 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:04.142 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:04.142 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:04.142 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:04.142 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:06.157 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:06.157 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:06.157 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:06.157 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:09.070 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:09.071 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:09.071 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:09.071 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:11.082 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:11.082 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:11.082 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:11.082 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:13.094 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:13.094 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:13.094 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:13.094 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:15.118 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:15.118 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:15.118 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:15.118 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:17.129 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:17.130 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:17.130 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:17.130 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:19.208 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:19.208 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:19.208 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:19.208 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:21.284 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:21.284 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:21.284 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:21.284 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:23.294 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:23.294 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:23.294 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:23.294 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:25.315 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:25.315 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:25.315 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:25.315 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:27.327 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:27.327 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:27.327 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:27.327 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:38.090 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:38.090 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:38.090 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:38.090 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:30:41.068 [manager.py:565] the req info
+INFO 10-07 02:30:41.068 [manager.py:565]  {}
+INFO 10-07 02:34:02.451 [manager.py:565] the req info
+INFO 10-07 02:34:02.451 [manager.py:565]  {}
+INFO 10-07 02:37:23.836 [manager.py:565] the req info
+INFO 10-07 02:37:23.836 [manager.py:565]  {}
+INFO 10-07 02:40:45.220 [manager.py:565] the req info
+INFO 10-07 02:40:45.220 [manager.py:565]  {}
+INFO 10-07 02:44:06.700 [manager.py:565] the req info
+INFO 10-07 02:44:06.700 [manager.py:565]  {}
+INFO 10-07 02:47:28.116 [manager.py:565] the req info
+INFO 10-07 02:47:28.116 [manager.py:565]  {}
+INFO 10-07 02:50:49.496 [manager.py:565] the req info
+INFO 10-07 02:50:49.496 [manager.py:565]  {}
+INFO 10-07 02:54:10.898 [manager.py:565] the req info
+INFO 10-07 02:54:10.898 [manager.py:565]  {}
+INFO 10-07 02:57:32.303 [manager.py:565] the req info
+INFO 10-07 02:57:32.303 [manager.py:565]  {}
+INFO 10-07 03:00:53.699 [manager.py:565] the req info
+INFO 10-07 03:00:53.699 [manager.py:565]  {}
+INFO 10-07 03:04:15.079 [manager.py:565] the req info
+INFO 10-07 03:04:15.079 [manager.py:565]  {}
+INFO 10-07 03:07:36.486 [manager.py:565] the req info
+INFO 10-07 03:07:36.486 [manager.py:565]  {}
+INFO 10-07 03:10:57.887 [manager.py:565] the req info
+INFO 10-07 03:10:57.887 [manager.py:565]  {}
+INFO 10-07 03:14:19.310 [manager.py:565] the req info
+INFO 10-07 03:14:19.310 [manager.py:565]  {}
+INFO 10-07 03:17:40.690 [manager.py:565] the req info
+INFO 10-07 03:17:40.690 [manager.py:565]  {}
+INFO 10-07 03:21:02.088 [manager.py:565] the req info
+INFO 10-07 03:21:02.088 [manager.py:565]  {}
+INFO 10-07 03:24:23.535 [manager.py:565] the req info
+INFO 10-07 03:24:23.535 [manager.py:565]  {}
+INFO 10-07 03:27:44.939 [manager.py:565] the req info
+INFO 10-07 03:27:44.939 [manager.py:565]  {}
+INFO 10-07 03:31:06.328 [manager.py:565] the req info
+INFO 10-07 03:31:06.328 [manager.py:565]  {}
+INFO 10-07 03:34:27.706 [manager.py:565] the req info
+INFO 10-07 03:34:27.706 [manager.py:565]  {}
+INFO 10-07 03:37:49.095 [manager.py:565] the req info
+INFO 10-07 03:37:49.095 [manager.py:565]  {}
+INFO 10-07 03:41:10.484 [manager.py:565] the req info
+INFO 10-07 03:41:10.484 [manager.py:565]  {}
+INFO 10-07 03:44:31.903 [manager.py:565] the req info
+INFO 10-07 03:44:31.903 [manager.py:565]  {}
+INFO 10-07 03:47:53.293 [manager.py:565] the req info
+INFO 10-07 03:47:53.293 [manager.py:565]  {}
+INFO 10-07 03:51:14.713 [manager.py:565] the req info
+INFO 10-07 03:51:14.713 [manager.py:565]  {}
 /opt/conda/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
   warnings.warn('resource_tracker: There appear to be %d '
