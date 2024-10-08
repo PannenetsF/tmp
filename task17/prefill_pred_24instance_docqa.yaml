@@ -1,0 +1,16 @@
+config:
+  alpha: 0.01
+  beta: 10
+  disabled: false
+  dump_path: /data/fanyunqian/ela-1004/ela-1004distkv/lightllm/evaluation/task13/prefill_history.json
+  load_per_req: 5000000000
+  min_instance: 1
+  pull_threshold: 0.0
+  push_threshold: 0.8
+  slack_rate: 0.2
+  token_per_instance: 16900000000
+  total_instance: 24
+  update_time: 2
+  warmup_time: 1
+  window_time: 5
+config_type: req2load

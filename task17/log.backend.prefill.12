@@ -1,0 +1,329 @@
+app-vzucgzpq-848bb9b8b7-7nzhc 10.119.22.19 12
+Executing command: python -m lightllm.server.backend_pord_server --model_dir /data/basemodel/llama3.1/Meta-Llama-3.1-8B/ --max_req_total_len 140000 --max_req_input_len 135000 --max_total_token_num 320000 --parameter_cache /data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/ --host 10.119.22.19 --tp 1 --nccl_ip 10.119.22.36 --nccl_port 9999 --local_instance_num 8 --instance_id 12 --instance_num 32 --router_socket 10.119.22.19:13200 --detokenization_socket 10.119.22.36:31240 --dist_mode prefill --socket_server_addr_port 10.119.22.19:19200 --running_max_req_size 10 --batch_max_tokens 140010 --decode_scheduler_url 10.119.22.36:28000
+INFO 10-07 02:23:28.217 [backend_pord_server.py:167] pord server args: Namespace(host='10.119.22.19', port=8000, model_dir='/data/basemodel/llama3.1/Meta-Llama-3.1-8B/', tokenizer_mode='slow', load_way='HF', max_total_token_num=320000, batch_max_tokens=140010, eos_id=[2], running_max_req_size=10, tp=1, instance_id=12, local_instance_num=8, instance_num=32, max_req_input_len=135000, max_req_total_len=140000, nccl_ip='10.119.22.36', nccl_port=9999, mode=[], trust_remote_code=False, disable_log_stats=False, log_stats_interval=10, router_token_ratio=0.0, router_max_new_token_len=1024, router_max_wait_tokens=10, use_dynamic_prompt_cache=False, splitfuse_block_size=256, splitfuse_mode=False, beam_mode=False, diverse_mode=False, token_healing_mode=False, enable_multimodal=False, cache_capacity=200, cache_reserved_ratio=0.5, data_type='float16', return_all_prompt_logprobs=False, long_truncation_mode=None, use_tgi_api=False, health_monitor=False, node_gpu_count=8, dist_mode='prefill', decode_scheduler_url='10.119.22.36:28000', decode_scheduler_socket=None, detokenization_socket='10.119.22.36:31240', router_socket='10.119.22.19:13200', socket_server_addr_port='10.119.22.19:19200', parameter_cache='/data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/')
+INFO 10-07 02:23:33.142 [manager.py:1171] start router process with prefill 10.119.22.19:13200 10.119.22.36:31240 [10012]
+create shm 9999_12_mem_manger_can_use_token_num
+create shm 9999_12_shared_token_load
+INFO 10-07 02:27:01.736 [manager.py:147] router (pull) bind to 10.119.22.19:13200
+INFO 10-07 02:27:01.736 [manager.py:151] router (push) connect to 10.119.22.36:31240
+INFO 10-07 02:27:01.737 [model_rpc.py:42] use ContinuesBatchBackend
+INFO 10-07 02:27:13.552 [dist.py:51] pid=162965 global rank = 12 / 32, reduce group: start=12, end=13, gpu idx = 4
+INFO 10-07 02:27:16.115 [basemodel.py:156] load weights from parameter cache
+INFO 10-07 02:27:18.197 [mem_utils.py:11] mode setting params: []
+INFO 10-07 02:27:18.197 [mem_utils.py:23] Model kv cache using mode normal
+INFO 10-07 02:27:18.222 [mem_manager.py:57] mem manger get unique_name : 9999_12
+link shm 9999_12_mem_manger_can_use_token_num
+INFO 10-07 02:27:19.092 [base_backend.py:261] loaded model class <class 'lightllm.models.llama.model.LlamaTpPartModel'>
+INFO 10-07 02:27:19.093 [manager.py:421] use req queue ContinuesBatchQueue
+INFO 10-07 02:27:19.093 [dist.py:57] re-set device to 4
+INFO 10-07 02:27:19.093 [start_utils.py:29] init func start_router_process : init ok
+INFO 10-07 02:27:19.094 [dist.py:57] re-set device to 4
+INFO 10-07 02:27:19.095 [manager.py:370] start socket server at 10.119.22.19:19200
+INFO 10-07 02:27:21.677 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:21.677 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:21.677 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:21.677 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:21.870 [manager.py:1129] recv elastic req ElasticReq(action=shutdown, idx=10, dist_type=prefill)
+INFO 10-07 02:27:21.871 [manager.py:1137] finish elastic req ElasticReq(action=shutdown, idx=10, dist_type=prefill)
+CRITICAL 10-07 02:27:21.872 [mem_manager.py:126] free kv buffer from mem manager
+INFO 10-07 02:27:22.414 [basemodel.py:174] free 58003.562496 Mbytes after clear weight, 315.91168 Mbytes used
+INFO 10-07 02:27:24.931 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:24.931 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:24.931 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:24.931 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:26.942 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:26.942 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:26.942 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:26.942 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:29.073 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:29.073 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:29.073 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:29.074 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:31.087 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:31.087 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:31.087 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:31.087 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:33.115 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:33.115 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:33.115 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:33.115 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:35.150 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:35.151 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:35.151 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:35.151 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:37.159 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:37.159 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:37.159 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:37.159 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:39.199 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:39.199 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:39.199 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:39.199 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:41.210 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:41.210 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:41.210 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:41.210 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:43.221 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:43.221 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:43.221 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:43.221 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:45.231 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:45.232 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:45.232 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:45.232 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:47.242 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:47.242 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:47.242 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:47.242 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:49.251 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:49.251 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:49.251 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:49.251 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:51.262 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:51.262 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:51.262 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:51.262 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:53.271 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:53.271 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:53.271 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:53.271 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:55.283 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:55.283 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:55.283 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:55.283 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:57.292 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:57.292 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:57.293 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:57.293 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:27:59.305 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:27:59.305 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:27:59.305 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:27:59.305 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:01.317 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:01.317 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:01.317 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:01.317 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:03.332 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:03.332 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:03.332 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:03.332 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:05.343 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:05.343 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:05.343 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:05.343 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:07.355 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:07.355 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:07.355 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:07.355 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:09.365 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:09.365 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:09.365 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:09.365 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:11.378 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:11.378 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:11.378 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:11.378 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:13.388 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:13.388 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:13.388 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:13.389 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:15.491 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:15.491 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:15.491 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:15.491 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:17.502 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:17.502 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:17.502 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:17.502 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:19.515 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:19.515 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:19.515 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:19.515 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:21.526 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:21.526 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:21.526 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:21.526 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:23.583 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:23.583 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:23.583 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:23.583 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:25.594 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:25.594 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:25.594 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:25.594 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:27.610 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:27.610 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:27.610 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:27.610 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:29.621 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:29.621 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:29.621 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:29.621 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:31.634 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:31.634 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:31.634 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:31.634 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:33.647 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:33.647 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:33.647 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:33.647 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:35.696 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:35.696 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:35.696 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:35.696 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:37.707 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:37.708 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:37.708 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:37.708 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:39.721 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:39.721 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:39.721 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:39.721 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:41.732 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:41.732 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:41.732 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:41.732 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:43.750 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:43.751 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:43.751 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:43.751 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:45.763 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:45.763 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:45.763 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:45.763 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:47.788 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:47.789 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:47.789 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:47.789 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:49.805 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:49.805 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:49.805 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:49.805 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:51.818 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:51.818 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:51.818 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:51.818 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:53.868 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:53.868 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:53.868 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:53.868 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:55.884 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:55.884 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:55.885 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:55.885 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:57.899 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:57.899 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:57.899 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:57.899 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:28:59.918 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:28:59.918 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:28:59.918 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:28:59.918 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:02.125 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:02.125 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:02.125 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:02.125 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:04.142 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:04.142 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:04.142 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:04.142 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:06.157 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:06.157 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:06.157 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:06.157 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:09.070 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:09.070 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:09.071 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:09.071 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:11.081 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:11.082 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:11.082 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:11.082 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:13.093 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:13.094 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:13.094 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:13.094 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:15.118 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:15.118 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:15.118 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:15.118 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:17.129 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:17.129 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:17.130 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:17.130 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:19.208 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:19.208 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:19.208 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:19.208 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:21.284 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:21.284 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:21.284 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:21.284 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:23.294 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:23.294 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:23.294 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:23.294 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:25.315 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:25.315 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:25.315 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:25.315 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:27.327 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:27.327 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:27.327 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:27.327 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:29:38.089 [manager.py:229] can commit ? 0 320000
+INFO 10-07 02:29:38.089 [manager.py:264] received load_prefill when event is True, commit amount 0 commit history 0
+INFO 10-07 02:29:38.089 [manager.py:315] load_prefill 0/320000/0
+INFO 10-07 02:29:38.089 [manager.py:357] feed 0/320000/0 to the socket req load_prefill
+INFO 10-07 02:30:41.017 [manager.py:565] the req info
+INFO 10-07 02:30:41.017 [manager.py:565]  {}
+INFO 10-07 02:34:02.392 [manager.py:565] the req info
+INFO 10-07 02:34:02.392 [manager.py:565]  {}
+INFO 10-07 02:37:23.767 [manager.py:565] the req info
+INFO 10-07 02:37:23.767 [manager.py:565]  {}
+INFO 10-07 02:40:45.149 [manager.py:565] the req info
+INFO 10-07 02:40:45.149 [manager.py:565]  {}
+INFO 10-07 02:44:06.521 [manager.py:565] the req info
+INFO 10-07 02:44:06.521 [manager.py:565]  {}
+INFO 10-07 02:47:27.904 [manager.py:565] the req info
+INFO 10-07 02:47:27.904 [manager.py:565]  {}
+INFO 10-07 02:50:49.289 [manager.py:565] the req info
+INFO 10-07 02:50:49.289 [manager.py:565]  {}
+INFO 10-07 02:54:10.669 [manager.py:565] the req info
+INFO 10-07 02:54:10.669 [manager.py:565]  {}
+INFO 10-07 02:57:32.035 [manager.py:565] the req info
+INFO 10-07 02:57:32.035 [manager.py:565]  {}
+INFO 10-07 03:00:53.417 [manager.py:565] the req info
+INFO 10-07 03:00:53.417 [manager.py:565]  {}
+INFO 10-07 03:04:14.802 [manager.py:565] the req info
+INFO 10-07 03:04:14.802 [manager.py:565]  {}
+INFO 10-07 03:07:36.182 [manager.py:565] the req info
+INFO 10-07 03:07:36.182 [manager.py:565]  {}
+INFO 10-07 03:10:57.553 [manager.py:565] the req info
+INFO 10-07 03:10:57.553 [manager.py:565]  {}
+INFO 10-07 03:14:18.937 [manager.py:565] the req info
+INFO 10-07 03:14:18.937 [manager.py:565]  {}
+INFO 10-07 03:17:40.313 [manager.py:565] the req info
+INFO 10-07 03:17:40.313 [manager.py:565]  {}
+INFO 10-07 03:21:01.687 [manager.py:565] the req info
+INFO 10-07 03:21:01.687 [manager.py:565]  {}
+INFO 10-07 03:24:23.071 [manager.py:565] the req info
+INFO 10-07 03:24:23.071 [manager.py:565]  {}
+INFO 10-07 03:27:44.442 [manager.py:565] the req info
+INFO 10-07 03:27:44.442 [manager.py:565]  {}
+INFO 10-07 03:31:05.813 [manager.py:565] the req info
+INFO 10-07 03:31:05.813 [manager.py:565]  {}
+INFO 10-07 03:34:27.185 [manager.py:565] the req info
+INFO 10-07 03:34:27.185 [manager.py:565]  {}
+INFO 10-07 03:37:48.572 [manager.py:565] the req info
+INFO 10-07 03:37:48.572 [manager.py:565]  {}
+INFO 10-07 03:41:09.953 [manager.py:565] the req info
+INFO 10-07 03:41:09.953 [manager.py:565]  {}
+INFO 10-07 03:44:31.329 [manager.py:565] the req info
+INFO 10-07 03:44:31.329 [manager.py:565]  {}
+INFO 10-07 03:47:52.710 [manager.py:565] the req info
+INFO 10-07 03:47:52.710 [manager.py:565]  {}
+INFO 10-07 03:51:14.063 [manager.py:565] the req info
+INFO 10-07 03:51:14.063 [manager.py:565]  {}
+/opt/conda/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 2 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

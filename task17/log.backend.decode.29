@@ -1,0 +1,66 @@
+app-vzucgzpq-848bb9b8b7-j7vdl 10.119.21.211 29
+Executing command: python -m lightllm.server.backend_pord_server --model_dir /data/basemodel/llama3.1/Meta-Llama-3.1-8B/ --max_req_total_len 140000 --max_req_input_len 135000 --max_total_token_num 320000 --parameter_cache /data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/ --host 10.119.21.211 --tp 1 --nccl_ip 10.119.22.36 --nccl_port 9999 --local_instance_num 8 --instance_id 29 --instance_num 32 --router_socket 10.119.21.211:16260 --detokenization_socket 10.119.22.36:31580 --dist_mode decode --socket_server_addr_port 10.119.21.211:22260 --decode_scheduler_socket 10.119.21.211:25260
+INFO 10-07 08:52:32.291 [backend_pord_server.py:167] pord server args: Namespace(host='10.119.21.211', port=8000, model_dir='/data/basemodel/llama3.1/Meta-Llama-3.1-8B/', tokenizer_mode='slow', load_way='HF', max_total_token_num=320000, batch_max_tokens=None, eos_id=[2], running_max_req_size=1000, tp=1, instance_id=29, local_instance_num=8, instance_num=32, max_req_input_len=135000, max_req_total_len=140000, nccl_ip='10.119.22.36', nccl_port=9999, mode=[], trust_remote_code=False, disable_log_stats=False, log_stats_interval=10, router_token_ratio=0.0, router_max_new_token_len=1024, router_max_wait_tokens=10, use_dynamic_prompt_cache=False, splitfuse_block_size=256, splitfuse_mode=False, beam_mode=False, diverse_mode=False, token_healing_mode=False, enable_multimodal=False, cache_capacity=200, cache_reserved_ratio=0.5, data_type='float16', return_all_prompt_logprobs=False, long_truncation_mode=None, use_tgi_api=False, health_monitor=False, node_gpu_count=8, dist_mode='decode', decode_scheduler_url=None, decode_scheduler_socket='10.119.21.211:25260', detokenization_socket='10.119.22.36:31580', router_socket='10.119.21.211:16260', socket_server_addr_port='10.119.21.211:22260', parameter_cache='/data/fanyunqian/ela-1004/ela-1004param_cache/8b_tp1/')
+INFO 10-07 08:52:37.197 [manager.py:1171] start router process with decode 10.119.21.211:16260 10.119.22.36:31580 [10029]
+create shm 9999_29_mem_manger_can_use_token_num
+create shm 9999_29_shared_token_load
+INFO 10-07 08:56:00.104 [manager.py:147] router (pull) bind to 10.119.21.211:16260
+INFO 10-07 08:56:00.104 [manager.py:151] router (push) connect to 10.119.22.36:31580
+INFO 10-07 08:56:00.105 [manager.py:169] the decode scheduler socket is 10.119.21.211:25260
+INFO 10-07 08:56:00.105 [model_rpc.py:42] use ContinuesBatchBackend
+INFO 10-07 08:56:11.918 [dist.py:51] pid=129495 global rank = 29 / 32, reduce group: start=29, end=30, gpu idx = 5
+INFO 10-07 08:56:14.440 [basemodel.py:156] load weights from parameter cache
+INFO 10-07 08:56:16.515 [mem_utils.py:11] mode setting params: []
+INFO 10-07 08:56:16.515 [mem_utils.py:23] Model kv cache using mode normal
+INFO 10-07 08:56:16.537 [mem_manager.py:57] mem manger get unique_name : 9999_29
+link shm 9999_29_mem_manger_can_use_token_num
+INFO 10-07 08:56:17.437 [base_backend.py:261] loaded model class <class 'lightllm.models.llama.model.LlamaTpPartModel'>
+INFO 10-07 08:56:17.437 [manager.py:421] use req queue ContinuesBatchQueue
+INFO 10-07 08:56:17.438 [dist.py:57] re-set device to 5
+INFO 10-07 08:56:17.438 [start_utils.py:29] init func start_router_process : init ok
+INFO 10-07 08:56:17.438 [dist.py:57] re-set device to 5
+INFO 10-07 08:56:17.439 [manager.py:370] start socket server at 10.119.21.211:22260
+INFO 10-07 08:56:20.023 [manager.py:229] can commit ? 0 320000
+INFO 10-07 08:56:20.023 [manager.py:264] received load when event is True, commit amount 0 commit history 0
+INFO 10-07 08:56:20.023 [manager.py:310] load 0/320000/0
+INFO 10-07 08:56:20.023 [manager.py:357] feed 0/320000/0 to the socket req load
+CRITICAL 10-07 08:56:20.030 [mem_manager.py:126] free kv buffer from mem manager
+INFO 10-07 08:56:20.245 [basemodel.py:174] free 58003.562496 Mbytes after clear weight, 870.34368 Mbytes used
+INFO 10-07 08:59:39.033 [manager.py:565] the req info
+INFO 10-07 08:59:39.033 [manager.py:565]  {}
+INFO 10-07 09:03:00.480 [manager.py:565] the req info
+INFO 10-07 09:03:00.480 [manager.py:565]  {}
+INFO 10-07 09:06:21.889 [manager.py:565] the req info
+INFO 10-07 09:06:21.889 [manager.py:565]  {}
+INFO 10-07 09:09:43.345 [manager.py:565] the req info
+INFO 10-07 09:09:43.345 [manager.py:565]  {}
+INFO 10-07 09:13:04.763 [manager.py:565] the req info
+INFO 10-07 09:13:04.763 [manager.py:565]  {}
+INFO 10-07 09:16:26.191 [manager.py:565] the req info
+INFO 10-07 09:16:26.191 [manager.py:565]  {}
+INFO 10-07 09:19:47.617 [manager.py:565] the req info
+INFO 10-07 09:19:47.617 [manager.py:565]  {}
+INFO 10-07 09:23:09.026 [manager.py:565] the req info
+INFO 10-07 09:23:09.026 [manager.py:565]  {}
+INFO 10-07 09:26:30.441 [manager.py:565] the req info
+INFO 10-07 09:26:30.441 [manager.py:565]  {}
+INFO 10-07 09:29:51.859 [manager.py:565] the req info
+INFO 10-07 09:29:51.859 [manager.py:565]  {}
+INFO 10-07 09:33:13.333 [manager.py:565] the req info
+INFO 10-07 09:33:13.333 [manager.py:565]  {}
+INFO 10-07 09:36:34.776 [manager.py:565] the req info
+INFO 10-07 09:36:34.776 [manager.py:565]  {}
+INFO 10-07 09:39:56.196 [manager.py:565] the req info
+INFO 10-07 09:39:56.196 [manager.py:565]  {}
+INFO 10-07 09:43:17.650 [manager.py:565] the req info
+INFO 10-07 09:43:17.650 [manager.py:565]  {}
+INFO 10-07 09:46:39.079 [manager.py:565] the req info
+INFO 10-07 09:46:39.079 [manager.py:565]  {}
+INFO 10-07 09:50:00.504 [manager.py:565] the req info
+INFO 10-07 09:50:00.504 [manager.py:565]  {}
+INFO 10-07 09:53:21.944 [manager.py:565] the req info
+INFO 10-07 09:53:21.944 [manager.py:565]  {}
+INFO 10-07 09:56:43.343 [manager.py:565] the req info
+INFO 10-07 09:56:43.343 [manager.py:565]  {}
+INFO 10-07 10:00:04.769 [manager.py:565] the req info
+INFO 10-07 10:00:04.769 [manager.py:565]  {}
