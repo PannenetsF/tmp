@@ -1,0 +1,13 @@
+config_type: momentum
+config:
+  pull_threshold: 0.
+  push_threshold: 0.8
+  min_instance: 1
+  token_per_instance: 320000
+  total_instance: 2
+  slack_rate: 0.2
+  warmup_time: 1
+  update_time: 2 
+  window_time: 10
+  disabled: False
+  dump_path: /data/fanyunqian/sch/distkv/lightllm/evaluation/task11/decode_history.json

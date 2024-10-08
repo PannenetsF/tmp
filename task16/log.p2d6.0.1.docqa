@@ -1,0 +1,27 @@
+Namespace(backend='lightllm', base_url=None, host='10.121.4.14', port=9090, endpoint='/generate_stream', dataset=None, dataset_name='io', dataset_path='/data/fanyunqian/sch/distkv/lightllm/evaluation/task12/../shared/data/docqa.txt', model='llama2-7b', tokenizer='/data/models/Meta-Llama-3-8B/', best_of=1, use_beam_search=False, num_prompts=2000, sharegpt_output_len=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, random_input_len=500, random_output_len=200, random_range_ratio=1.0, request_rate=inf, dyna_rate_file='/data/fanyunqian/sch/distkv/lightllm/evaluation/task12/../shared/data/schat_freq.txt', dyna_rate_interval=0.1, request_scale_rate=1.0, seed=0, trust_remote_code=False, disable_tqdm=False, save_result=False, metadata=None, result_dir=None, result_filename=None)
+URL http://10.121.4.14:9090/generate_stream status code: 417
+URL http://10.121.4.14:9090/generate_stream is available.
+Starting initial single prompt test run...
+Initial test run completed. Starting main benchmark run...
+Traffic request rate: inf
+============ Serving Benchmark Result ============
+Successful requests:                     2000      
+Benchmark duration (s):                  1450.04   
+Total input tokens:                      21735117  
+Total generated tokens:                  597853    
+Request throughput (req/s):              1.38      
+Input token throughput (tok/s):          14989.37  
+Output token throughput (tok/s):         412.30    
+---------------Time to First Token----------------
+Mean TTFT (ms):                          717565.35 
+Median TTFT (ms):                        680138.97 
+P99 TTFT (ms):                           1306488.93
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          260.29    
+Median TPOT (ms):                        122.25    
+P99 TPOT (ms):                           4437.90   
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           131.82    
+Median ITL (ms):                         82.23     
+P99 ITL (ms):                            287.55    
+==================================================
